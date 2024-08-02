@@ -1,0 +1,40 @@
+﻿@inherits LayoutComponentBase
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="navbar">
+				<a class="navbar-brand ms-3" href="#">
+					<i class="bi bi-nintendo-switch" width="35" height="35"></i>
+				</a>
+				<div class="d-flex justify-content-center mt-0" style="height: 25px;">
+					<div class="vr" style="width:1.5px;"></div>
+				</div>
+				<a class="nav-item nav-link active" href="#" style="color:black; "><b>Store</b></a>
+			</div>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<i class="bi bi-justify" />
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+					<a class="nav-item nav-link" href="#">Support</a>
+					<a class="nav-item nav-link" href="#">Distribute</a>
+				</div>
+			</div>
+        </nav>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+
+<div id="blazor-error-ui">
+    An unhandled error has occurred.
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+</div>

@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameStore.HybridApp", "GameStore.HybridApp\GameStore.HybridApp.csproj", "{041934A1-2E8F-417E-9392-D5D6B4C66A8D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorClassLibrary.Components", "RazorClassLibrary.Components\RazorClassLibrary.Components.csproj", "{33A4D3AC-CA92-499C-BA3D-3DA72DAA42B4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameStoreBlazorWeb.Website", "GameStoreBlazorWeb.Website\GameStoreBlazorWeb.Website.csproj", "{A77339BB-20A9-4431-A96E-40495C56C212}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{041934A1-2E8F-417E-9392-D5D6B4C66A8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{041934A1-2E8F-417E-9392-D5D6B4C66A8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{041934A1-2E8F-417E-9392-D5D6B4C66A8D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{041934A1-2E8F-417E-9392-D5D6B4C66A8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{041934A1-2E8F-417E-9392-D5D6B4C66A8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{041934A1-2E8F-417E-9392-D5D6B4C66A8D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{33A4D3AC-CA92-499C-BA3D-3DA72DAA42B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33A4D3AC-CA92-499C-BA3D-3DA72DAA42B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33A4D3AC-CA92-499C-BA3D-3DA72DAA42B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33A4D3AC-CA92-499C-BA3D-3DA72DAA42B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A77339BB-20A9-4431-A96E-40495C56C212}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A77339BB-20A9-4431-A96E-40495C56C212}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A77339BB-20A9-4431-A96E-40495C56C212}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A77339BB-20A9-4431-A96E-40495C56C212}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CA50852C-26B9-4852-9B48-F73D36F5ECF1}
+	EndGlobalSection
+EndGlobal

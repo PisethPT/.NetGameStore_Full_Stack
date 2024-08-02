@@ -1,0 +1,499 @@
+﻿@page "/stores"
+@using Microsoft.AspNetCore.Components.QuickGrid
+
+<nav class="navbar bg-body-tertiary">
+	<div class="container-fluid">
+		<form class="d-flex" role="search">
+			<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+			<button class="btn btn-outline-secondary" type="submit">Search</button>
+			<div class="d-flex">
+				<a class="nav-item nav-link" style="color:black;" href="#">Discover</a>
+				<a class="nav-item nav-link" style="color:black;" href="#">Brows</a>
+				<a class="nav-item nav-link" style="color:black;" href="#">News</a>
+			</div>
+		</form>
+	</div>
+</nav>
+
+@* slider head *@
+<div class="row g-0 text-center justify-content-center">
+	@* Carousel *@
+	<div id="carouselExampleCaptions" class="carousel slide col-sm-6 col-md-8">
+		<div class="carousel-indicators">
+			<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+			<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+			<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+		</div>
+		<div class="carousel-inner rounded mx-auto d-block">
+			<div class="carousel-item active">
+				<img src="https://cdn2.unrealengine.com/egs-rawmen-carousel-desktop-1920x1080-a0ba0e6327a9.jpg?h=720&quality=medium&resize=1&w=1280" class="d-block w-100 rounded mx-auto d-block" alt="...">
+				<div class="carousel-caption d-none d-md-block">
+					<h5>First slide label</h5>
+					<p>Some representative placeholder content for the first slide.</p>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<img src="https://cdn2.unrealengine.com/summer-sale-desktop-carousel-image-84147642bf50.avif?h=720&quality=medium&resize=1&w=1280" class="d-block w-100 rounded mx-auto d-block" alt="...">
+				<div class="carousel-caption d-none d-md-block">
+					<h5>Second slide label</h5>
+					<p>Some representative placeholder content for the second slide.</p>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<img src="https://mobirise.com/extensions/techm4/assets/images/background2.jpg" class="d-block w-100 rounded mx-auto d-block" alt="...">
+				<div class="carousel-caption d-none d-md-block">
+					<h5>Third slide label</h5>
+					<p>Some representative placeholder content for the third slide.</p>
+				</div>
+			</div>
+		</div>
+		<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Previous</span>
+		</button>
+		<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Next</span>
+		</button>
+	</div>
+
+	@*1/2*@
+	<div class="col-6 col-md-3 ms-3">
+		<div class="grid-container" style="grid-auto-rows:auto;">
+
+			<div class="grid-item mb-3" >
+				<div class="row p-0 g-0">
+					<div class="col-md-4">
+						<img src="https://cdn2.unrealengine.com/egs-rawmen-launch-carousel-thumb-1200x1600-02ef7bbe2c3c.jpg?h=128&quality=medium&resize=1&w=96" class="img-fluid rounded-start" style="width:60px;" alt="...">
+					</div>
+					<div class="col-md-8 d-flex align-items-center">
+						<p class="text-center text-md-start ms-0" style="max-width: auto;">RAWMEN</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="grid-item mb-3" >
+				<div class="row p-0 g-0">
+					<div class="col-md-4">
+						<img src="https://cdn2.unrealengine.com/en-summer-sale-carousel-thumbnail-1200x1600-3c11aab9c84a.jpg?h=128&quality=medium&resize=1&w=96" class="img-fluid rounded-start" style="width:60px;" alt="...">
+					</div>
+					<div class="col-md-8 d-flex align-items-center">
+						<p class="text-center text-md-start ms-0" style="max-width: auto;">Summer Sale</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="grid-item mb-3" >
+				<div class="row p-0 g-0">
+					<div class="col-md-4">
+						<img src="https://cdn2.unrealengine.com/egs-deadpool-and-wolverine-carousel-thumb-1200x1600-2d3999b1ddc4.jpg?h=128&quality=medium&resize=1&w=96" class="img-fluid rounded-start" style="width:60px;" alt="...">
+					</div>
+					<div class="col-md-8 d-flex align-items-center">
+						<p class="text-center text-md-start ms-0" style="max-width: auto;">Fortnite</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="grid-item mb-3" >
+				<div class="row p-0 g-0">
+					<div class="col-md-4">
+						<img src="https://cdn2.unrealengine.com/egs-apex-legends-carousel-thumb-1200x1600-afbd2f552e60.jpg?h=128&quality=medium&resize=1&w=96" class="img-fluid rounded-start" style="width:60px;" alt="...">
+					</div>
+					<div class="col-md-8 d-flex align-items-center">
+						<p class="text-center text-md-start ms-0" style="max-width: auto;">Apex Legends™</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="grid-item mb-3" >
+				<div class="row p-0 g-0">
+					<div class="col-md-4">
+						<img src="https://cdn2.unrealengine.com/en-egs-honkai-star-rail-2-4-carousel-thumb-1200x1600-09c7ce245702.jpg?h=128&quality=medium&resize=1&w=96" class="img-fluid rounded-start" style="width:60px;" alt="...">
+					</div>
+					<div class="col-md-8 d-flex align-items-center">
+						<p class="text-center text-md-start ms-0" style="max-width: auto;">Honkai: Star Rail</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="grid-item">
+				<div class="row p-0 g-0">
+					<div class="col-md-4">
+						<img src="https://cdn2.unrealengine.com/egs-star-wars-outlaws-gold-carousel-thumb-1200x1600-4d347e0d9f70.jpg?h=128&quality=medium&resize=1&w=96" class="img-fluid rounded-start" style="width:60px;" alt="...">
+					</div>
+					<div class="col-md-8 d-flex align-items-center">
+						<p class="text-center text-md-start ms-0" style="max-width: auto;">Star Wars Outlaws</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	@*end grid*@
+	</div>
+
+</div>
+
+@*Top New Releases*@
+<div class="mt-5 ps-4 pe-2 pt-0">
+	<div class="d-flex justify-content-between">
+		<h4 class="ms-4"><b>Top New Games</b></h4>
+		<div class="justify-content-end ">
+			<nav aria-label="Page navigation example">
+				<ul class="pagination justify-content-end">
+					<li class="page-item">
+						<a class="page-link rounded-circle me-4 btn-primary" style="width:38px; height:38px;" href="#" aria-label="Previous">
+							<div class="d-flex justify-content-center">
+								<span aria-hidden="true">&laquo;</span>
+							</div>
+						</a>
+					</li>
+					<li class="page-item me-4">
+						<a class="page-link rounded-circle btn-primary" style="width:38px; height:38px;" href="#" aria-label="Next">
+							<div class="d-flex justify-content-center">
+								<span aria-hidden="true">&raquo;</span>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+
+	<div class="d-flex justify-content-center">
+		<div class="row row-cols-6 d-flex justify-content-center">
+
+			<div class="card mt-3 me-3 p-0" style="width: 15rem; border-radius:15px;">
+				<img class="card-img-top" style="border-radius:20px; padding:10px;" src="https://cdn1.epicgames.com/offer/24cc2629b0594bf29340f6acf9816af8/EGS_HorizonForbiddenWestCompleteEdition_GuerrillaGamesNixxesSoftware_S2_1200x1600-6eeadae1c58ebaaa74b109bd26d96645?h=480&quality=medium&resize=1&w=360" alt="...">
+				<div class="card-body">
+					<h5 class="card-title">Horizon Forbidden West™ Complete Edition</h5>
+					<p class="card-text">Genres: RolePlaying</p>
+					<p class="card-text">Release Date: 8/24/2019</p>
+				</div>
+				<div class="d-flex justify-content-around mb-3">
+					<p class="text-center text-md-start"><b>Price: 47.99$</b></p>
+					<a href="#" class="btn btn-primary">Add Card</a>
+				</div>
+			</div>				
+			
+			<div class="card mt-3 me-3 p-0" style="width: 15rem; border-radius:15px;">
+				<img class="card-img-top" style="border-radius:20px; padding:10px;" src="https://cdn1.epicgames.com/spt-assets/bd49b69c7a9e410b83b7c553c837a00a/crosshair-x-uqsfp.png?h=480&quality=medium&resize=1&w=360" alt="...">
+				<div class="card-body">
+					<h5 class="card-title">Crosshair X</h5>
+					<p class="card-text">Genres: Base Game</p>
+					<p class="card-text">Release Date: 8/24/2019</p>
+				</div>
+				<div class="d-flex justify-content-around mb-3">
+					<p class="text-center text-md-start"><b>Price: 2.59$</b></p>
+					<a href="#" class="btn btn-primary">Add Card</a>
+				</div>
+			</div>				
+			
+			<div class="card mt-3 me-3 p-0" style="width: 15rem; border-radius:15px;">
+				<img class="card-img-top" style="border-radius:20px; padding:10px;" src="https://cdn1.epicgames.com/offer/76cd63399a874c2b854fd74cda49a256/EGS_SuicideSquadKilltheJusticeLeague_RocksteadyStudios_S2_1200x1600-6b6637e47b7b406d34be4ea9c19ef1a7?h=480&quality=medium&resize=1&w=360" alt="...">
+				<div class="card-body">
+					<h5 class="card-title">Suicide Squad: Kill the Justice League</h5>
+					<p class="card-text">Genres: Fighting</p>
+					<p class="card-text">Release Date: 8/24/2019</p>
+				</div>
+				<div class="d-flex justify-content-around mb-3">
+					<p class="text-center text-md-start"><b>Price: 14.99$</b></p>
+					<a href="#" class="btn btn-primary">Add Card</a>
+				</div>
+			</div>				
+			
+			<div class="card mt-3 me-3 p-0" style="width: 15rem; border-radius:15px;">
+				<img class="card-img-top" style="border-radius:20px; padding:10px;" src="https://cdn1.epicgames.com/spt-assets/57015e643399448f8139291daa15bfc2/f1-manager-2024-15uhb.jpg?h=480&quality=medium&resize=1&w=360" alt="...">
+				<div class="card-body">
+					<h5 class="card-title">F1® Manager 2024</h5>
+					<p class="card-text">Genres: Sports</p>
+					<p class="card-text">Release Date: 8/24/2019</p>
+				</div>
+				<div class="d-flex justify-content-around mb-3">
+					<p class="text-center text-md-start"><b>Price: 23.99$</b></p>
+					<a href="#" class="btn btn-primary">Add Card</a>
+				</div>
+			</div>				
+			
+			<div class="card mt-3 me-3 p-0" style="width: 15rem; border-radius:15px;">
+				<img class="card-img-top" style="border-radius:20px; padding:10px;" src="https://cdn1.epicgames.com/spt-assets/62b3525c0dae4deebb9b66f0d17bfd3f/banishers--ghosts-of-new-eden-2uw71.jpg?h=480&quality=medium&resize=1&w=360://th.bing.com/th/id/R.2e44af4176c43cb7c944f3b05132c838?rik=f%2bub%2bhCwxKzOsg&pid=ImgRaw&r=0" alt="...">
+				<div class="card-body">
+					<h5 class="card-title">Banishers: Ghosts of New Eden</h5>
+					<p class="card-text">Genres: Fighting</p>
+					<p class="card-text">Release Date: 8/24/2019</p>
+				</div>
+				<div class="d-flex justify-content-around mb-3">
+					<p class="text-center text-md-start"><b>Price: 29.99$</b></p>
+					<a href="#" class="btn btn-primary">Add Card</a>
+				</div>
+			</div>				
+			
+			<div class="card mt-3 me-3 p-0" style="width: 15rem; border-radius:15px;">
+				<img class="card-img-top" style="border-radius:20px; padding:10px;" src="https://cdn1.epicgames.com/spt-assets/fcecaf1e6a4f44768444aee37f3b5c87/darkblade-ascent-1w74w.jpg?h=480&quality=medium&resize=1&w=360" alt="...">
+				<div class="card-body">
+					<h5 class="card-title">Darkblade Ascent</h5>
+					<p class="card-text">Genres: Fighting</p>
+					<p class="card-text">Release Date: 8/24/2019</p>
+				</div>
+				<div class="d-flex justify-content-around mb-3">
+					<p class="text-center text-md-start"><b>Price: 6.19$</b></p>
+					<a href="#" class="btn btn-primary">Add Card</a>
+				</div>
+			</div>			
+
+		</div>
+	</div>
+</div>
+
+@*Summer Spotlight*@
+<div class="mt-5 ps-4 pe-2 pt-0 pb-5">
+	<div class="d-flex justify-content-between">
+		<h4 class="ms-4"><b>Summer Spotlight</b></h4>
+		<div class="justify-content-end ">
+			<nav aria-label="Page navigation example">
+				<ul class="pagination justify-content-end">
+					<li class="page-item">
+						<a class="page-link rounded-circle me-4 btn-primary" style="width:38px; height:38px;" href="#" aria-label="Previous">
+							<div class="d-flex justify-content-center">
+								<span aria-hidden="true">&laquo;</span>
+							</div>
+						</a>
+					</li>
+					<li class="page-item me-4">
+						<a class="page-link rounded-circle btn-primary" style="width:38px; height:38px;" href="#" aria-label="Next">
+							<div class="d-flex justify-content-center">
+								<span aria-hidden="true">&raquo;</span>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+
+	<div class="d-flex justify-content-center">
+		<div class="row row-cols-6 d-flex justify-content-center">
+
+			<div class="card mt-3 me-3 p-0" style="width: 15rem; border-radius:15px;">
+				<img class="card-img-top" style="border-radius:20px; padding:10px;" src="https://cdn1.epicgames.com/offer/4750c68b2bfa4f43933b81cfd5cc510c/EGS_EASPORTSFC24StandardEdition_EACanada_S2_1200x1600-5ecbb77fd9c0601ef34c4a988120fc42?h=480&quality=medium&resize=1&w=360" alt="...">
+				<div class="card-body">
+					<h5 class="card-title">EA SPORTS FC™ 24 Standard Edition</h5>
+					<p class="card-text">Genres: Sports</p>
+					<p class="card-text">Release Date: 8/24/2024</p>
+				</div>
+				<div class="d-flex justify-content-around mb-3">
+					<p class="text-center text-md-start"><b>Price: 13.99$</b></p>
+					<a href="#" class="btn btn-primary">Add Card</a>
+				</div>
+			</div>
+
+			<div class="card mt-3 me-3 p-0" style="width: 15rem; border-radius:15px;">
+				<img class="card-img-top" style="border-radius:20px; padding:10px;" src="https://cdn1.epicgames.com/offer/ef7baa6ce017413ab33e7f7e3f466a96/EGS_Homeworld3FleetCommandEdition_BlackbirdInteractive_Bundles_S2_1200x1600-d72f139d9da4da0c922e37571e1c5909?h=480&quality=medium&resize=1&w=360" alt="...">
+				<div class="card-body">
+					<h5 class="card-title">Homeworld 3 - Fleet Command Edition</h5>
+					<p class="card-text">Genres: Fighting</p>
+					<p class="card-text">Release Date: 8/24/2019</p>
+				</div>
+				<div class="d-flex justify-content-around mb-3">
+					<p class="text-center text-md-start"><b>Price: 60.38$</b></p>
+					<a href="#" class="btn btn-primary">Add Card</a>
+				</div>
+			</div>
+
+			<div class="card mt-3 me-3 p-0" style="width: 15rem; border-radius:15px;">
+				<img class="card-img-top" style="border-radius:20px; padding:10px;" src="https://cdn1.epicgames.com/offer/c4763f236d08423eb47b4c3008779c84/EGS_AlanWake2_RemedyEntertainment_S2_1200x1600-c7c8091ddac0f9669c8e5905bca88aaa?h=480&quality=medium&resize=1&w=360" alt="...">
+				<div class="card-body">
+					<h5 class="card-title">Alan Wake 2</h5>
+					<p class="card-text">Genres: Fighting</p>
+					<p class="card-text">Release Date: 8/24/2019</p>
+				</div>
+				<div class="d-flex justify-content-around mb-3">
+					<p class="text-center text-md-start"><b>Price: 29.89$</b></p>
+					<a href="#" class="btn btn-primary">Add Card</a>
+				</div>
+			</div>
+
+			<div class="card mt-3 me-3 p-0" style="width: 15rem; border-radius:15px;">
+				<img class="card-img-top" style="border-radius:20px; padding:10px;" src="https://cdn1.epicgames.com/offer/428115def4ca4deea9d69c99c5a5a99e/EN_Bungie_TheFinalShape_S4_1200x1600_1200x1600-1b5bab8a2f5d7e1551f12832ff083723?h=480&quality=medium&resize=1&w=360" alt="...">
+				<div class="card-body">
+					<h5 class="card-title">Destiny 2: The Final Shape</h5>
+					<p class="card-text">Genres: Base Game</p>
+					<p class="card-text">Release Date: 8/24/2019</p>
+				</div>
+				<div class="d-flex justify-content-around mb-3">
+					<p class="text-center text-md-start"><b>Price: 26.24$</b></p>
+					<a href="#" class="btn btn-primary">Add Card</a>
+				</div>
+			</div>
+
+			<div class="card mt-3 me-3 p-0" style="width: 15rem; border-radius:15px;">
+				<img class="card-img-top" style="border-radius:20px; padding:10px;" src="https://cdn1.epicgames.com/offer/eca39884bdf14f65af242a8e3ff5b2d9/EGST_StorePortrait_1200x1600_1200x1600-201e8f02dd794c678599d0dcb66d078e?h=480&quality=medium&resize=1&w=360" alt="...">
+				<div class="card-body">
+					<h5 class="card-title">Avatar: Frontiers of Pandora</h5>
+					<p class="card-text">Genres: RolePlaying</p>
+					<p class="card-text">Release Date: 8/24/2019</p>
+				</div>
+				<div class="d-flex justify-content-around mb-3">
+					<p class="text-center text-md-start"><b>Price: 25.49$</b></p>
+					<a href="#" class="btn btn-primary">Add Card</a>
+				</div>
+			</div>
+
+			<div class="card mt-3 me-3 p-0" style="width: 15rem; border-radius:15px;">
+				<img class="card-img-top" style="border-radius:20px; padding:10px;" src="https://cdn1.epicgames.com/spt-assets/2ae760629a384d5199cbefc612db7ac8/the-lord-of-the-rings-return-to-moria-tr0c9.png?h=480&quality=medium&resize=1&w=360" alt="...">
+				<div class="card-body">
+					<h5 class="card-title">The Lord of The Rings Return to Moria</h5>
+					<p class="card-text">Genres: Fighting</p>
+					<p class="card-text">Release Date: 8/24/2019</p>
+				</div>
+				<div class="d-flex justify-content-around mb-3">
+					<p class="text-center text-md-start"><b>Price: 5.66$</b></p>
+					<a href="#" class="btn btn-primary">Add Card</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+@*3 Cards *@
+<div class="card-group mt-5 me-4 ms-5">
+	<div class="card me-3" style="border-radius:15px; background:none; border:none;">
+		<img style="border-radius:15px;" src="https://cdn2.unrealengine.com/en-egs-dotw-riders-republic-breaker-1920x1080-d41a1b283e40.jpg?h=480&quality=medium&resize=1&w=854" class="card-img-top img-fluid" alt="...">
+		<div class="card-body">
+			<h5 class="card-title"><b>Riders Republic</b></h5>
+			<div class="d-flex">
+			<button class="bg-primary" style="border:none; border-radius:10px; padding-top:0; padding-bottom:0; padding-left:10px; padding-right:10px; color:white; font-size:small;">-75%</button>
+			<p class="card-text ms-2"><del style="color:grey">$29.99</del>  $7.49</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="card me-3" style="border-radius:15px; background:none; border:none;">
+		<img style="border-radius:15px;" src="https://cdn2.unrealengine.com/en-egs-dotw-empires-of-the-undergrowth-breaker-1920x1080-a6a5a7f66262.jpg?h=480&quality=medium&resize=1&w=854" class="card-img-top img-fluid" alt="...">
+		<div class="card-body">
+			<h5 class="card-title"><b>Empires of the Undergrowth</b></h5>
+			<div class="d-flex">
+				<button class="bg-primary" style="border:none; border-radius:10px; padding-top:0; padding-bottom:0; padding-left:10px; padding-right:10px; color:white; font-size:small;">-35%</button>
+			<p class="card-text ms-2"><del style="color:grey">$14.99</del>  $9.74</p>
+			</div>
+		</div>
+	</div>	
+	
+	<div class="card me-3" style="border-radius:15px; background:none; border:none;">
+		<img style="border-radius:15px;" src="https://cdn2.unrealengine.com/en-sales-specials-dotw-breaker-asset-1920x1080-1313ee288796.jpg?h=480&quality=medium&resize=1&w=854" class="card-img-top img-fluid" alt="...">
+		<div class="card-body">
+			<h5 class="card-title"><b>Check out all the deals for this week.</b></h5>
+			<button class="btn btn-secondary me-3" style="border-radius:8px;">Browse</button>
+		</div>
+	</div>
+</div>
+
+@*Free Games*@
+<div class="mt-5 ps-4 pe-2 pt-0 pb-2 me-5 ms-5" style="border-radius:20px; background-color:lightgrey;">
+	<div class="d-flex justify-content-between pt-4">
+		<div class="d-flex">
+			<i class="bi bi-gift-fill me-3 h3"></i>
+			<h4 class="text-center"><b>Free Games</b></h4>
+		</div>
+		<button class="btn btn-outline-primary me-3" style="border-radius:8px;">View More</button>
+	</div>
+	
+	<div class="card-group mt-3">
+		<div class="card me-3" style="border-radius:15px; background:none; border:none;">
+			<img style="border-radius:15px;" src="https://cdn1.epicgames.com/spt-assets/16c163a44eea408c94b388cb63aafe6d/olympics-go-paris-2024-ujl2u.jpg?h=480&quality=medium&resize=1&w=854" class="card-img-top img-fluid" alt="...">
+			<div class="card-body">
+				<h5 class="card-title"><b>Exclusive Outfits Pack</b></h5>
+				<p class="card-text">Free Now - Aug 01 at 10:00 PM</p>
+			</div>
+		</div>
+
+		<div class="card me-3" style="border-radius:15px; background:none; border:none;">
+			<img style="border-radius:15px;" src="https://cdn1.epicgames.com/offer/a7e2a2c51b9149c097b771926ed91877/EGS_FISTForgedInShadowTorch_TiGames_S3_2560x1440-d79b811e274bd49318edf3b7c00b82c8?h=480&quality=medium&resize=1&w=854" class="card-img-top img-fluid" alt="...">
+			<div class="card-body">
+				<h5 class="card-title"><b>F.I.S.T.: Forged In Shadow Torch</b></h5>
+				<p class="card-text">Free Now - Aug 01 at 10:00 PM</p>
+			</div>
+		</div>
+
+		<div class="card me-3" style="border-radius:15px; background:none; border:none;">
+			<img style="border-radius:15px;" src="https://cdn1.epicgames.com/spt-assets/67b80cb431834a1fa1ec3e69ef2f83f1/lumbearjack-offer-13qa5.jpg?h=480&quality=medium&resize=1&w=854" class="card-img-top img-fluid" alt="...">
+			<div class="card-body">
+				<h5 class="card-title"><b>LumbearJack</b></h5>
+				<p class="card-text">Free Aug 01 - Aug 08</p>
+			</div>
+		</div>
+	</div>
+	
+</div>
+
+@*Fortnite Experiences*@
+<div class="mt-5 ps-4 pe-2 pt-0 pb-4">
+	<h4 class="ms-4 mb-5"><b>Fortnite Experiences</b></h4>
+	<div class="card-group  me-4 ms-4">
+		<div class="card me-3" style="border-radius:15px; background:none; border:none;">
+			<img style="border-radius:15px;" src="https://cdn2.unrealengine.com/newsfeed-1920x1080-1920x1080-3507967fceb8.jpg?h=480&quality=medium&resize=1&w=854" class="card-img-top img-fluid" alt="...">
+			<div class="card-body">
+				<h5 class="card-title"><b>Find it in Fortnite</b></h5>
+				<p class="text-body">A new way to discover what's happening in Fortnite.</p>
+				<button class="btn btn-secondary me-3" style="border-radius:8px;">Discover</button>
+			</div>
+		</div>
+
+		<div class="card me-3" style="border-radius:15px; background:none; border:none;">
+			<img style="border-radius:15px;" src="https://cdn2.unrealengine.com/egs-fn-deadpool-wolverine-breaker-1920x1080-ba86e3b24711.jpg?h=480&quality=medium&resize=1&w=854" class="card-img-top img-fluid" alt="...">
+			<div class="card-body">
+				<h5 class="card-title"><b>Fortnite</b></h5>
+				<p class="text-body">Deadpool and Wolverine together? You know him as The Merc.</p>
+				<button class="btn btn-secondary me-3" style="border-radius:8px;">Play For Free</button>
+			</div>
+		</div>
+
+		<div class="card me-3" style="border-radius:15px; background:none; border:none;">
+			<img style="border-radius:15px;" src="https://cdn2.unrealengine.com/en-fneco-30-30-subs-coralnumberblitz-cosmetic-1920x1080-1921x1080-98abc4d155ac.jpg?h=480&quality=medium&resize=1&w=854" class="card-img-top img-fluid" alt="...">
+			<div class="card-body">
+				<h5 class="card-title"><b>Fortnite</b></h5>
+				<p class="text-body">Take apart the competition. The Operator joins Crew for August.</p>
+				<button class="btn btn-secondary me-3" style="border-radius:8px;">Play For Free</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+@*2 Pages*@
+<div class="card-group  me-4 ms-5">
+	<div class="card me-3" style="border-radius:15px; background:none; border:none;">
+		<img style="border-radius:15px;" src="https://cdn2.unrealengine.com/egs-rocket-league-deadpool-breaker-1920x1080-823075711704.jpg?h=480&quality=medium&resize=1&w=854" class="card-img-top img-fluid" alt="...">
+		<div class="card-body">
+			<h5 class="card-title"><b>Rocket League</b></h5>
+			<p class="text-body">Did someone say chimichangas?! Deadpool has officially taken over the Rocket League Shop.</p>
+			<button class="btn btn-secondary me-3" style="border-radius:8px;">Discover</button>
+		</div>
+	</div>
+
+	<div class="card me-3" style="border-radius:15px; background:none; border:none;">
+		<img style="border-radius:15px;" src="https://cdn2.unrealengine.com/egs-trepang2-bladekisser-breaker-1920x1080-a2c27c6e17d2.jpg?h=480&quality=medium&resize=1&w=854" class="card-img-top img-fluid" alt="...">
+		<div class="card-body">
+			<h5 class="card-title"><b>Trepang2</b></h5>
+			<p class="text-body">Unleash all hell on your enemies and get up close and personal with the new Bladekisser DLC!</p>
+			<p class="me-3">$5.99</p>
+		</div>
+	</div>
+
+	<div class="card me-3" style="border-radius:15px; background:none; border:none;">
+		<img style="border-radius:15px;" src="https://cdn2.unrealengine.com/egs-harry-potter-quidditch-champions-breaker-1920x1080-ce8f39dd01f9.jpg?h=480&quality=medium&resize=1&w=854" class="card-img-top img-fluid" alt="...">
+		<div class="card-body">
+			<h5 class="card-title"><b>Harry Potter: Quidditch Champions</b></h5>
+			<p class="text-body">Immerse yourself in the enchanting world of Quidditch by playing solo or sharing the magic with friends and family.</p>
+			<p class="me-3">$29.99</p>
+		</div>
+	</div>
+</div>
+
+@*Footer*@
+<div class="mt-5 ps-4 pe-2 pt-0 pb-5">
+	<h4><b>Fortnite Experiences</b></h4>
+</div>
+
+@code {
+
+}

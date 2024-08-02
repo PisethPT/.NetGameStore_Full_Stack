@@ -1,0 +1,118 @@
+﻿@page "/addGame"
+@page "/addGame/{Id:int}"
+@using RazorClassLibrary.Components.Models.Dtos
+@using RazorClassLibrary.Components.Models
+@using RazorClassLibrary.Components.Services
+@inject NavigationManager navigation
+@inject IGenreService genreService
+@inject IGameStoreService gameService
+
+@rendermode InteractiveServer
+<h3>
+	<b>Add Game</b>
+</h3>
+
+@if (Genres is null || newGame is null)
+{
+	<p><em>Loading...</em></p>
+}
+else
+{
+	<div class="row">
+		<div class="col-8">
+			<div class="row-md-6">
+				<EditForm method="post" Model="@newGame" FormName="addGame" class="form-right" OnValidSubmit="OnHandle" Enhance>
+					<DataAnnotationsValidator />
+					@* 			<ValidationSummary /> *@
+					<div class="mb-3">
+						<label for="name" class="form-label">Name</label>
+						<InputText id="name" @bind-Value="newGame!.Name" class="form-control" />
+						<ValidationMessage For="() => newGame.Name" class="text-danger" />
+					</div>
+					<div class="mb-3">
+						<label for="genre" class="form-label">Genres</label>
+						<InputSelect id="genre" @bind-Value="newGame.GenreId" class="form-select">
+							@* <option value="">Select a Genre</option> *@
+							@foreach (var genre in Genres)
+							{
+								<option value="@genre.Id">@genre.Name</option>
+							}
+						</InputSelect>
+						<ValidationMessage For="() => newGame.GenreId" />
+					</div>
+					<div class="mb-3">
+						<label for="price" class="form-label">Prices</label>
+						<InputNumber id="price" @bind-Value="newGame.Price" class="form-control" />
+						<ValidationMessage For="() => newGame.Price" />
+					</div>
+					<div class="mb-3">
+						<label for="releaseDate" class="form-label">Release Date</label>
+						<InputDate id="releaseDate" @bind-Value="newGame.ReleaseDate" class="form-control" />
+					</div>
+					<div class="mb-3">
+						<label for="releaseDate" class="form-label">Game Image</label>
+						<div class="input-group">
+							<input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+							<button class="btn btn-outline-danger" type="button" id="inputGroupFileAddon04">Cancel</button>
+						</div>
+					</div>
+
+					<div class="mt-4">
+						<button type="submit" class="btn btn-primary">Save</button>
+						<a class="btn btn-secondary" role="button" href="/gamesList">Cancel</a>
+					</div>
+				</EditForm>
+			</div>
+		</div>
+
+		<div class="col-4 mt-4">
+			<div class="card justify-content-center" style="border-radius:20px;">
+				<div class="card-body">
+					<h5 class="card-title">Image title</h5>
+					<p class="card-text"><small class="text-body-secondary">Image Size: 168 x 180</small></p>
+				</div>
+				<img style="border-radius:25px; padding:10px;" src="https://th.bing.com/th/id/R.2e44af4176c43cb7c944f3b05132c838?rik=f%2bub%2bhCwxKzOsg&pid=ImgRaw&r=0" class="card-img-bottom" alt="...">
+			</div>
+
+		</div>
+	</div>
+
+}
+
+@code
+{
+	[Parameter]
+	public int? Id { get; set; }
+	[SupplyParameterFromForm]
+	public NewGame? newGame { get; set; }
+	public List<Genre> Genres { get; set; } = new();
+
+	protected override async Task OnInitializedAsync()
+	{
+		var genres = await genreService.GetGenreListAsync();
+		Genres.AddRange(genres);
+	}
+
+	protected override async Task OnParametersSetAsync()
+	{
+		if (newGame is not null)
+			return;
+		if (Id is not null)
+			newGame = await gameService.GetGameByIdAsync(Id.Value);
+		else
+			newGame = new() { Name = string.Empty, GenreId = Genres[0].Id, ReleaseDate = DateOnly.FromDateTime(DateTime.UtcNow) };
+	}
+
+	private void OnHandle()
+	{
+		ArgumentNullException.ThrowIfNull(newGame);
+		if (Id is null)
+			gameService.AddGameAsync(newGame);
+		else
+		{
+			newGame.Id = Id.Value;
+			gameService.UpdateGameAsync(newGame);
+		}
+		navigation.NavigateTo("/gamesList");
+	}
+}

@@ -1,0 +1,138 @@
+﻿@page "/gamesList"
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using RazorClassLibrary.Components.Models
+@using RazorClassLibrary.Components.Services
+@inject IGameStoreService gameStoreService
+@rendermode InteractiveServer
+<PageTitle>Game List</PageTitle>
+
+<h3>
+	<b>Table Games</b>
+</h3>
+@if(Games is null || QGames is null)
+{
+	<p><em>Game Store Loading...</em></p>
+}
+
+else
+{
+	@* <h4>@Games.Count()</h4> *@
+
+	<div class="navbar mt-2">
+		<nav aria-label="Page navigation example">
+			<ul class="pagination justify-content-start">
+				<li class="page-item disabled">
+					<a class="page-link" href="#" tabindex="-1">Previous</a>
+				</li>
+				<li class="page-item"><a class="page-link" href="#">1</a></li>
+				<li class="page-item"><a class="page-link" href="#">2</a></li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+				<li class="page-item">
+					<a class="page-link" href="#">Next</a>
+				</li>
+			</ul>
+		</nav>
+		<div class="d-flex justify-content-end">
+			<a class="btn btn-primary" role="button" href="/addGame">
+				<i class="bi bi-plus-square" /> New Game
+			</a>
+		</div>
+	</div>
+
+	<QuickGrid Class="table table-light table-striped table-hover mt-3 table-responsive-lg" Items="@QGames" Pagination="paginationState">
+		@*Items="@Games.AsQueryable()" use with list*@
+		<PropertyColumn Property="@(game => game.Id)" Sortable="true"/>
+		<PropertyColumn Property="@(game => game.Name)" />
+		<PropertyColumn Property="@(game => game.Genre)" Align="Align.Start" Class="text-start"/>
+		<PropertyColumn Property="@(game => game.Price.ToString("C2"))" Title="Price" Align="Align.Start" Class="text-start"/>
+		<PropertyColumn Property="@(game => game.ReleaseDate)" Title="Release Date" Align="Align.Center" Class="text-center"/>
+
+		<TemplateColumn Context="game" Title="Action" Align="Align.Center">
+			<div class="d-flex justify-content-center">
+				<a class="btn btn-primary me-2" role="button" href="@GetGameById(@game.Id)">
+					<i class="bi bi-pencil" />
+				</a>
+				<button class="btn btn-danger">
+					<i class="bi bi-x-lg" />
+				</button>
+			</div>
+		</TemplateColumn>
+	</QuickGrid>
+	<Paginator State="paginationState"/>
+	
+	<h3>
+		<b>Game Cards</b>
+	</h3>
+	
+	<div>
+		<div>
+			<nav aria-label="Page navigation example">
+				<ul class="pagination justify-content-end mt-15">
+					<li class="page-item">
+						<a class="page-link rounded-circle me-4 btn-primary" style="width:38px; height:38px;" href="#" aria-label="Previous">
+							<div class="d-flex justify-content-center">
+								<span aria-hidden="true">&laquo;</span>
+							</div>
+						</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link rounded-circle btn-primary" style="width:38px; height:38px;" href="#" aria-label="Next">
+							<div class="d-flex justify-content-center">
+								<span aria-hidden="true">&raquo;</span>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		
+		<div class="row row-cols-5 d-flex justify-content-center">
+			@foreach(var game in Games)
+			{
+				<div class="card mt-3 me-3 p-0" style="width: 18rem; border-radius:25px;">
+					<img class="card-img-top" style="border-radius:30px; padding:10px;"  src="https://th.bing.com/th/id/R.2e44af4176c43cb7c944f3b05132c838?rik=f%2bub%2bhCwxKzOsg&pid=ImgRaw&r=0" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">@game.Name</h5>
+						<p class="card-text">Genres: @game.Genre</p>
+						<p class="card-text">Release Date: @game.ReleaseDate</p>
+					</div>
+					<div class="d-flex justify-content-around mb-3">
+						<h5><b>@game.Price.ToString("C2")</b></h5>
+						<a href="#" class="btn btn-primary">Add Card</a>
+					</div>
+				</div>
+			}
+		</div>
+	</div>
+
+	<div>
+		<p>Items from API: (@Games.Count())</p>
+	</div>
+
+
+}
+
+@code
+{
+	private List<Game> Games = new();
+	private IQueryable<Game>? QGames;
+
+	PaginationState paginationState = new() { ItemsPerPage = 4 };
+	PaginationState paginationStatePage = new() { ItemsPerPage = 3 };
+
+	protected override async Task OnInitializedAsync()
+	{
+		await Task.Delay(500);
+		await base.OnInitializedAsync();
+		var games = await gameStoreService.GetAllGamesAsync();
+		QGames = (await gameStoreService.GetAllGamesAsync()).AsQueryable();
+		Games.AddRange(games);
+	}
+
+	private static string GetGameById(int Id) => $"/addGame/{Id}";
+
+	// public async void AlertMessage()
+	// {
+	// 	await Application.Current.MainPage.DisplayAlert("Counter", $"{Games.Count()}", "Ok");
+	// }
+}
